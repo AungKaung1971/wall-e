@@ -4,6 +4,7 @@ from voice.voice_wake_vosk import detect_wake_word
 from voice.stt import record_command, transcribe
 from voice.conversation import ask_llm
 import time
+from voice.tts import speak
 
 
 def main():
@@ -30,6 +31,12 @@ def main():
 
         # 4. LLM Brain
         reply = ask_llm(text)
+
+        # tts
+
+        speak(reply)  # ← ADD THIS
+
+        print("[MAIN] Ready for next wake word...\n")
 
         # 5. Output response (text-only for now)
         print(f"[WALL-E] {reply}\n")
