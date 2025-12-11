@@ -25,13 +25,12 @@ def ask_llm(user_text: str) -> str:
     Sends the user text to GPT-5-mini and returns the assistant's reply.
     Uses the SAME pattern as your working tweet generator.
     """
-    print("\n[LLM] Sending to gpt-5-mini:", user_text)
+    print("\n[LLM] Sending to gpt-5-nano:", user_text)
 
     try:
         response = client.chat.completions.create(
-            model="gpt-5-mini",
+            model="gpt-5-nano",
             messages=[
-                {"role": "system", "content": SYSTEM_PROMPT},
                 {"role": "user", "content": user_text},
             ],
         )
